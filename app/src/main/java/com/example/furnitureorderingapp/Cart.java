@@ -8,6 +8,7 @@ public class Cart {
 
     // 2. The list of items in the cart
     private ArrayList<String> items;
+    private ArrayList<Integer> itemPrices;
 
     public interface CartChangeListener {
         void onCartChanged();
@@ -25,6 +26,7 @@ public class Cart {
 
     private Cart() {
         items = new ArrayList<>();
+        itemPrices = new ArrayList<>();
     }
 
     public static synchronized Cart getInstance() {
@@ -34,8 +36,10 @@ public class Cart {
         return instance;
     }
 
-    public void addItem(String itemName) {
+    public void addItem(String itemName, int itemPrice) {
         items.add(itemName);
+        itemPrices.add(itemPrice);
+
         // --- Updated Code ---
         // 4. Notify the listener that the cart has changed
         if (listener != null) {
@@ -50,6 +54,9 @@ public class Cart {
 
     public ArrayList<String> getItems() {
         return items;
+    }
+    public ArrayList<Integer> getPrices() {
+        return itemPrices;
     }
 
     public void removeListener() {
