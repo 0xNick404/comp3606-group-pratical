@@ -87,7 +87,6 @@ public class HomepageActivity extends AppCompatActivity {
 
         Toast.makeText(this, "Loading saved order and preparing update...", Toast.LENGTH_SHORT).show();
 
-        // --- THIS IS THE CRUCIAL CHANGE ---
         // When going to the confirmation screen, we now pass the LATEST data
         // from the Cart singleton. This includes any newly added items.
         Intent intent = new Intent(HomepageActivity.this, OrderConfirmationActivity.class);

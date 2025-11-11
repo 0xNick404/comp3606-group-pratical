@@ -13,8 +13,8 @@ public class FileHelper {
     private static final String TAG = "FileHelper"; // Tag for logging
 
     /**
-     * Saves a new order receipt by OVERWRITING the file.
-     * This now uses FileOutputStream, similar to your teacher's example.
+     *
+     * FileOutputStream,
      */
     public static boolean saveOrderReceipt(Context context, String customerName, String shippingDate, int totalCost, ArrayList<String> items) {
         // 1. Build the entire receipt string first.
@@ -72,7 +72,7 @@ public class FileHelper {
             }
 
             // OVERWRITE the old file with the completely new content.
-            // This is a more robust way to "append" while updating the total
+            //
             try (FileOutputStream outputStream = context.openFileOutput(FILE_NAME, Context.MODE_PRIVATE)) {
                 outputStream.write(updatedContent.toString().getBytes());
                 Log.d(TAG, "File appended successfully.");
