@@ -46,6 +46,10 @@ public class LoginActivity extends AppCompatActivity {
             final TestUser user = testUsers.get(i);
 
             if(user.getUsername().equals(userUsername) && user.getPassword().equals(userPassword)){
+
+                //Clear any previous shopping cart data before starting the new session.
+                Cart.getInstance().clearCart();
+
                 Intent intent = new Intent(LoginActivity.this, HomepageActivity.class);
                 intent.putExtra("USER_FULL_NAME", user.getFullName());
                 startActivity(intent);

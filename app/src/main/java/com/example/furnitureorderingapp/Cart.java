@@ -3,30 +3,20 @@ package com.example.furnitureorderingapp;
 import java.util.ArrayList;
 
 public class Cart {
-    // 1. Static instance for the singleton
-    private static Cart instance;
-
-    // 2. The list of items in the cart
-    private ArrayList<String> items;
-    private ArrayList<Integer> itemPrices;
 
     public interface CartChangeListener {
         void onCartChanged();
     }
 
-    // 2. A listener variable
+    private static Cart instance;
     private CartChangeListener listener;
 
-    // 3. A method to set the listener
-    public void setListener(CartChangeListener listener) {
-        this.listener = listener;
-    }
-    // --- End of New Code ---
-
+    private ArrayList<String> items;
+    private ArrayList<Integer> prices;
 
     private Cart() {
         items = new ArrayList<>();
-        itemPrices = new ArrayList<>();
+        prices = new ArrayList<>();
     }
 
     public static synchronized Cart getInstance() {
@@ -36,35 +26,40 @@ public class Cart {
         return instance;
     }
 
-    public void addItem(String itemName, int itemPrice) {
-        items.add(itemName);
-        itemPrices.add(itemPrice);
+    public void setListener(CartChangeListener listener) {
+        this.listener = listener;
+    }
 
-        // --- Updated Code ---
-        // 4. Notify the listener that the cart has changed
+    public void removeListener() {
+        this.listener = null;
+    }
+
+    public void addItem(String item, int price) {
+        items.add(item);
+        prices.add(price);
         if (listener != null) {
             listener.onCartChanged();
         }
-        // --- End of Updated Code ---
+    }
+
+    public ArrayList<String> getItems() {
+        return items;
+    }
+
+    public ArrayList<Integer> getPrices() {
+        return prices;
     }
 
     public int getCartItemCount() {
         return items.size();
     }
 
-    public ArrayList<String> getItems() {
-        return items;
-    }
-    public ArrayList<Integer> getPrices() {
-        return itemPrices;
-    }
-
-    public void removeListener() {
-        listener = null;
-    }
-
+    // A method to clear the cart after checkout
     public void clearCart() {
         items.clear();
+        prices.clear();
+        if (listener != null) {
+            listener.onCartChanged(); // Notify UI to reset badge
+        }
     }
-
 }

@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FurnitureOrderingApp">
+        <activity android:name=".OrderConfirmationActivity" />
         <activity
             android:name=".HomepageActivity"
             android:exported="false" />

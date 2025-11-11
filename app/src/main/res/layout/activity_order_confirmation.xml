@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    tools:context=".OrderConfirmationActivity">
+
+    <!-- Buttons will be grouped at the top -->
+    <LinearLayout
+        android:id="@+id/button_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSaveOrder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onSaveOrderClick"
+            android:text="Save Order"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/btnOpenOrder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onOpenOrderClick"
+            android:text="Open Order"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"/>
+
+        <Button
+            android:id="@+id/btnUpdateOrder"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onUpdateOrderClick"
+            android:text="Update Order"
+            android:layout_marginStart="4dp"/>
+    </LinearLayout>
+
+    <!-- A ScrollView to display the receipt content when opened -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/button_group"
+        android:layout_marginTop="24dp">
+
+        <TextView
+            android:id="@+id/tvOrderContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp"
+            tools:text="Order content will be displayed here."/>
+    </ScrollView>
+
+</RelativeLayout>
