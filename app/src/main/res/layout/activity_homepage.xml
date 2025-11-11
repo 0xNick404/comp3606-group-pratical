@@ -46,13 +46,17 @@
             android:background="@drawable/badge_background"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="10sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             android:visibility="gone"
             tools:text="3"
             tools:visibility="visible" />
 
     </FrameLayout>
+
+
+
+
 
 
 
@@ -90,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="$1250"
+                android:text="@string/_1250"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -101,7 +105,7 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add"
+                android:text="@string/add"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageView8" />
@@ -142,7 +146,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="$2100"
+                android:text="@string/_2100"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="$750"
+                android:text="@string/_750"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -247,7 +251,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="$550"
+                android:text="@string/_550"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -300,7 +304,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="$900"
+                android:text="@string/_900"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -352,7 +356,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:text="$2850"
+                android:text="@string/_2850"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -377,10 +381,25 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:onClick="onCheckout"
-        android:text="Proceed to Checkout"
+        android:text="@string/proceed_to_checkout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnUpdateOrderHomepage"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="onUpdateOrder"
+        android:text="@string/view_saved_order"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCheckout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnCheckout"
+        app:layout_constraintTop_toTopOf="@+id/btnCheckout" />
+
 
     <TextView
         android:id="@+id/receipt"

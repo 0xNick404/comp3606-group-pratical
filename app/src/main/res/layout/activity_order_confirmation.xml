@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".OrderConfirmationActivity">
+
+    <!-- Top row of buttons -->
+    <LinearLayout
+        android:id="@+id/button_group_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnCreateReceipt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onCreateReceiptClick"
+            android:text="Create Receipt"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnOpenReceipt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onOpenReceiptClick"
+            android:text="Open Receipt" />
+    </LinearLayout>
+
+    <!-- Bottom row of buttons -->
+    <LinearLayout
+        android:id="@+id/button_group_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnUpdateShopping"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onUpdateShoppingClick"
+            android:text="Update Shopping"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnUpdateReceipt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onUpdateReceiptClick"
+            android:text="Update Receipt"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+    </LinearLayout>
+
+
+    <!-- Content Display Area -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/button_group_top"
+        android:layout_above="@id/button_group_bottom"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/tvOrderContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ECECEC"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:hint="Receipt content will appear here..."
+            tools:text="Customer: Rai..." />
+    </ScrollView>
+
+</RelativeLayout>
