@@ -94,7 +94,7 @@ public class CheckoutActivity extends AppCompatActivity {
             return;
         }
         else{
-            if (btnSave != null) btnSave.setText("Saving Order to File...");
+            if (btnSave != null) btnSave.setText("Saving to File...");
             saveFile();
         }
     }
