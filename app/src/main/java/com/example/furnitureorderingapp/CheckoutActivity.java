@@ -56,7 +56,10 @@ public class CheckoutActivity extends AppCompatActivity {
         intent.putExtra("TOTAL", subTotal);
         intent.putStringArrayListExtra("ITEMS", getIntent().getStringArrayListExtra("Items"));
 
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
+        finish();
+
 
 
     }

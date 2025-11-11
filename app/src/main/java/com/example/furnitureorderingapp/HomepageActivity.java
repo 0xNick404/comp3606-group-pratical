@@ -7,6 +7,9 @@ import android.widget.Button;import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.util.ArrayList;
+
 public class HomepageActivity extends AppCompatActivity {
 
     private TextView cartItemCountBadge;
@@ -72,5 +75,36 @@ public class HomepageActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Cart.getInstance().removeListener(); // Clean up listener
+    }
+
+    public void onUpdateOrder(View view) {
+        // First, check if a saved order file even exists.
+        File orderFile = new File(getFilesDir(), "order.txt");
+        if (!orderFile.exists()) {
+            Toast.makeText(this, "No saved order found. Please checkout first.", Toast.LENGTH_SHORT).show();
+            return; // Exit if there's nothing to view or update.
+        }
+
+        Toast.makeText(this, "Loading saved order and preparing update...", Toast.LENGTH_SHORT).show();
+
+        // --- THIS IS THE CRUCIAL CHANGE ---
+        // When going to the confirmation screen, we now pass the LATEST data
+        // from the Cart singleton. This includes any newly added items.
+        Intent intent = new Intent(HomepageActivity.this, OrderConfirmationActivity.class);
+
+        // Get the latest cart contents
+        Cart cart = Cart.getInstance();
+        ArrayList<String> currentItems = cart.getItems();
+        int currentTotal = cart.getTotalPrice();
+
+        // Pass all necessary data. The confirmation screen needs the new total and items
+        // to perform an update, and the name to go back to the homepage again.
+        intent.putExtra("USER_FULL_NAME", getIntent().getStringExtra("USER_FULL_NAME"));
+        intent.putStringArrayListExtra("ITEMS", currentItems);
+        intent.putExtra("TOTAL", currentTotal);
+        // The shipping date doesn't change in this flow, so we don't pass it.
+        // The confirmation activity will need to handle this.
+
+        startActivity(intent);
     }
 }

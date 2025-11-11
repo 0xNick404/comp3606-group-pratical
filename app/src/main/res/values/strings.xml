@@ -2,5 +2,14 @@
     <string name="app_name">FurnitureOrderingApp</string>
     <string name="furniture_image">furniture image</string>
     <string name="shopping_cart">Shopping Cart</string>
+    <string name="view_saved_order">View Saved Order</string>
+    <string name="_1250">$1250</string>
+    <string name="add">Add</string>
+    <string name="_2100">$2100</string>
+    <string name="_750">$750</string>
+    <string name="_550">$550</string>
+    <string name="_900">$900</string>
+    <string name="_2850">$2850</string>
+    <string name="proceed_to_checkout">Proceed to Checkout</string>
 
 </resources>
